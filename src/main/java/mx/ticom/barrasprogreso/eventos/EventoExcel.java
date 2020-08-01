@@ -44,7 +44,10 @@ public class EventoExcel implements ActionListener {
             Row fila = pagina.createRow(i);
             Cell celda = fila.createCell(0);
             celda.setCellValue( datos.get(i));
+            
+            
             barra.setValue(i);
+            
             System.out.println("Agregando elemento " + i);
         }
         
