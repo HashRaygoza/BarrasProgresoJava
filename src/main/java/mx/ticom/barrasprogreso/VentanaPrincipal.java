@@ -5,6 +5,7 @@
  */
 package mx.ticom.barrasprogreso;
 
+import mx.ticom.barrasprogreso.eventos.EventoBoton;
 import mx.ticom.barrasprogreso.eventos.EventoExcel;
 import mx.ticom.barrasprogreso.eventos.EventoListener;
 import mx.ticom.barrasprogreso.eventos.EventoProgreso;
@@ -20,7 +21,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
-        initComponents();
+        initComponents();       
+          
+        EventoBoton eventoBoton = new EventoBoton(barraEvento);        
+        botonAvanzar.addActionListener(eventoBoton);
+
         
         EventoExcel eventoExcel = new EventoExcel(barraValue);
         botonExcelValue.addActionListener(eventoExcel);
@@ -30,7 +35,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         EventoListener eventoListener = new EventoListener(procesoReporte);
         
         procesoReporte.addPropertyChangeListener(eventoProceso);
-        botonListener.addActionListener(eventoListener);
+        botonListener.addActionListener(eventoListener);        
     }
 
     /**
@@ -52,49 +57,52 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(200, 0), new java.awt.Dimension(200, 0), new java.awt.Dimension(200, 32767));
         filler2 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
         filler3 = new javax.swing.Box.Filler(new java.awt.Dimension(0, 20), new java.awt.Dimension(0, 20), new java.awt.Dimension(32767, 20));
+        jLabel1 = new javax.swing.JLabel();
+        barraEvento = new javax.swing.JProgressBar();
+        botonAvanzar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Barra de Progreso");
         java.awt.GridBagLayout layout = new java.awt.GridBagLayout();
         layout.columnWidths = new int[] {0, 5, 0, 5, 0};
-        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0};
+        layout.rowHeights = new int[] {0, 5, 0, 5, 0, 5, 0, 5, 0};
         getContentPane().setLayout(layout);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(barraValue, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(barraListener, gridBagConstraints);
 
         jLabel2.setText("Progreso con setValue");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(jLabel2, gridBagConstraints);
 
         jLabel3.setText("Progreso con Listerner");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(jLabel3, gridBagConstraints);
 
         botonExcelValue.setText("Generar Excel");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(botonExcelValue, gridBagConstraints);
 
         botonListener.setText("Generar Excel");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 4;
+        gridBagConstraints.gridy = 6;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(botonListener, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -107,8 +115,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         getContentPane().add(filler2, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
-        gridBagConstraints.gridy = 6;
+        gridBagConstraints.gridy = 8;
         getContentPane().add(filler3, gridBagConstraints);
+
+        jLabel1.setText("Progreso con Evento");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(jLabel1, gridBagConstraints);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(barraEvento, gridBagConstraints);
+
+        botonAvanzar.setText("Evento");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        getContentPane().add(botonAvanzar, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -142,20 +169,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
-                new VentanaPrincipal().setVisible(true);
+                VentanaPrincipal ventana = new VentanaPrincipal();
+                ventana.setLocationRelativeTo(null);
+                ventana.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JProgressBar barraEvento;
     private javax.swing.JProgressBar barraListener;
     private javax.swing.JProgressBar barraValue;
+    private javax.swing.JButton botonAvanzar;
     private javax.swing.JButton botonExcelValue;
     private javax.swing.JButton botonListener;
     private javax.swing.Box.Filler filler1;
     private javax.swing.Box.Filler filler2;
     private javax.swing.Box.Filler filler3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

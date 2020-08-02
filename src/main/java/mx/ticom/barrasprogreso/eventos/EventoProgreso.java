@@ -22,6 +22,7 @@ public class EventoProgreso implements PropertyChangeListener {
 
     @Override
     public void propertyChange(PropertyChangeEvent evt) {
+        // Checamos si la propiedad modificada es progress
         if (evt.getPropertyName().compareTo("progress") == 0) {
             int progress = (Integer) evt.getNewValue();
             
