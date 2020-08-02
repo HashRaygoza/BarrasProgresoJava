@@ -29,6 +29,5 @@ public class EventoProgreso implements PropertyChangeListener {
             
             barraProgreso.setValue(progress);
         }
-    }
-    
+    }    
 }
