@@ -26,24 +26,31 @@ public class ProcesoReporte extends SwingWorker<Void, Void>{
         this.setProgress(0);        
     }
     
+    private int calcularAvance(int cantidadRegistros, int posicion) {        
+        Double indice = Double.valueOf(posicion);
+        Double total = Double.valueOf(cantidadRegistros - 1);
+        
+        double avance = (indice / total) * 100.0;
+        int progreso = (int) Math.round(avance);
+        
+        return progreso;
+    }
+    
+    
     public void generarExcel() throws FileNotFoundException, IOException {
         XSSFWorkbook libro = new XSSFWorkbook();
         XSSFSheet pagina = libro.createSheet("Pagina");
         GeneradorDatos generadorDatos = new GeneradorDatos();
         ArrayList<Double> datos = generadorDatos.datos();
+        
+        this.setProgress(0);
                 
         for(int i=0; i< datos.size(); i++){
             Row fila = pagina.createRow(i);
             Cell celda = fila.createCell(0);
             celda.setCellValue( datos.get(i));
             
-            Double indice = Double.valueOf(i);
-            Double total = Double.valueOf( datos.size() -1 );            
-
-            System.out.println(indice / total);
-            
-            double avance = (indice / total) * 100.0;
-            int progreso = (int) Math.round(avance);
+            int progreso = this.calcularAvance(datos.size(), i);
             
             System.out.println("Progreso " + progreso);
             this.setProgress(progreso);
@@ -58,6 +65,7 @@ public class ProcesoReporte extends SwingWorker<Void, Void>{
 
     @Override
     protected Void doInBackground() throws Exception {
+        this.setProgress(0);
         this.generarExcel();
         
         return null;

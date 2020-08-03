@@ -56,9 +56,9 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="botonExcelValue">
+    <Component class="javax.swing.JButton" name="botonOperacionLenta">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Generar Excel sin SwingWorker"/>
+        <Property name="text" type="java.lang.String" value="Evento con operacion Lenta"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -66,9 +66,9 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="botonListener">
+    <Component class="javax.swing.JButton" name="botonOperacionSwingWorker">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Generar Excel con SwingWorker"/>
+        <Property name="text" type="java.lang.String" value="Evento con SwingWorker"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -93,9 +93,9 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JButton" name="botonAvanzar">
+    <Component class="javax.swing.JButton" name="botonOperacionRapida">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Avanzar con Evento"/>
+        <Property name="text" type="java.lang.String" value="Evento con operacion Rapida"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
@@ -593,11 +593,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="32_botonExcelValue">
-          <CodeVariable name="botonExcelValue" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="32_botonOperacionLenta">
+          <CodeVariable name="botonOperacionLenta" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="botonExcelValue"/>
+              <ComponentRef name="botonOperacionLenta"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -662,11 +662,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="37_botonListener">
-          <CodeVariable name="botonListener" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="37_botonOperacionSwingWorker">
+          <CodeVariable name="botonOperacionSwingWorker" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="botonListener"/>
+              <ComponentRef name="botonOperacionSwingWorker"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>
@@ -882,11 +882,11 @@
         <CodeMethod name="add" class="java.awt.Container" parameterTypes="java.awt.Component, java.lang.Object"/>
       </StatementProvider>
       <Parameters>
-        <CodeExpression id="53_botonAvanzar">
-          <CodeVariable name="botonAvanzar" type="8194" declaredType="javax.swing.JButton"/>
+        <CodeExpression id="53_botonOperacionRapida">
+          <CodeVariable name="botonOperacionRapida" type="8194" declaredType="javax.swing.JButton"/>
           <ExpressionOrigin>
             <ExpressionProvider type="ComponentRef">
-              <ComponentRef name="botonAvanzar"/>
+              <ComponentRef name="botonOperacionRapida"/>
             </ExpressionProvider>
           </ExpressionOrigin>
         </CodeExpression>

@@ -5,11 +5,9 @@
  */
 package mx.ticom.barrasprogreso;
 
-import mx.ticom.barrasprogreso.eventos.EventoBoton;
-import mx.ticom.barrasprogreso.eventos.EventoExcel;
-import mx.ticom.barrasprogreso.eventos.EventoListener;
-import mx.ticom.barrasprogreso.eventos.EventoProgreso;
-import mx.ticom.barrasprogreso.eventos.ProcesoReporte;
+import mx.ticom.barrasprogreso.eventos.EventoOperacionRapida;
+import mx.ticom.barrasprogreso.eventos.EventoOperacionLenta;
+import mx.ticom.barrasprogreso.eventos.EventoOperacionSwingWorker;
 
 /**
  *
@@ -23,19 +21,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public VentanaPrincipal() {
         initComponents();       
           
-        EventoBoton eventoBoton = new EventoBoton(barraEvento);        
-        botonAvanzar.addActionListener(eventoBoton);
-
+        EventoOperacionRapida eventoOperacionRapida = new EventoOperacionRapida(barraEvento);        
+        botonOperacionRapida.addActionListener(eventoOperacionRapida);
         
-        EventoExcel eventoExcel = new EventoExcel(barraValue);
-        botonExcelValue.addActionListener(eventoExcel);
+        EventoOperacionLenta eventoOperacionLenta = new EventoOperacionLenta(barraValue);
+        botonOperacionLenta.addActionListener(eventoOperacionLenta);        
         
-        ProcesoReporte procesoReporte = new ProcesoReporte();
-        EventoProgreso eventoProceso = new EventoProgreso(barraListener);
-        EventoListener eventoListener = new EventoListener(procesoReporte);
-        
-        procesoReporte.addPropertyChangeListener(eventoProceso);
-        botonListener.addActionListener(eventoListener);        
+        EventoOperacionSwingWorker eventoOperacionSwingWorker = new EventoOperacionSwingWorker(barraListener);        
+        botonOperacionSwingWorker.addActionListener(eventoOperacionSwingWorker);        
     }
 
     /**
@@ -52,11 +45,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         barraListener = new javax.swing.JProgressBar();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        botonExcelValue = new javax.swing.JButton();
-        botonListener = new javax.swing.JButton();
+        botonOperacionLenta = new javax.swing.JButton();
+        botonOperacionSwingWorker = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         barraEvento = new javax.swing.JProgressBar();
-        botonAvanzar = new javax.swing.JButton();
+        botonOperacionRapida = new javax.swing.JButton();
         filler4 = new javax.swing.Box.Filler(new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 0), new java.awt.Dimension(300, 32767));
         filler5 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
         filler6 = new javax.swing.Box.Filler(new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20), new java.awt.Dimension(20, 20));
@@ -94,19 +87,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(jLabel3, gridBagConstraints);
 
-        botonExcelValue.setText("Generar Excel sin SwingWorker");
+        botonOperacionLenta.setText("Evento con operacion Lenta");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 8;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(botonExcelValue, gridBagConstraints);
+        getContentPane().add(botonOperacionLenta, gridBagConstraints);
 
-        botonListener.setText("Generar Excel con SwingWorker");
+        botonOperacionSwingWorker.setText("Evento con SwingWorker");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(botonListener, gridBagConstraints);
+        getContentPane().add(botonOperacionSwingWorker, gridBagConstraints);
 
         jLabel1.setText("Avanzando paso a paso con setValue");
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -121,12 +114,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         getContentPane().add(barraEvento, gridBagConstraints);
 
-        botonAvanzar.setText("Avanzar con Evento");
+        botonOperacionRapida.setText("Evento con operacion Rapida");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 4;
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-        getContentPane().add(botonAvanzar, gridBagConstraints);
+        getContentPane().add(botonOperacionRapida, gridBagConstraints);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 0;
@@ -185,9 +178,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JProgressBar barraEvento;
     private javax.swing.JProgressBar barraListener;
     private javax.swing.JProgressBar barraValue;
-    private javax.swing.JButton botonAvanzar;
-    private javax.swing.JButton botonExcelValue;
-    private javax.swing.JButton botonListener;
+    private javax.swing.JButton botonOperacionLenta;
+    private javax.swing.JButton botonOperacionRapida;
+    private javax.swing.JButton botonOperacionSwingWorker;
     private javax.swing.Box.Filler filler4;
     private javax.swing.Box.Filler filler5;
     private javax.swing.Box.Filler filler6;

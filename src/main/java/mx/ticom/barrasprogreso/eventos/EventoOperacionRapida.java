@@ -13,12 +13,12 @@ import javax.swing.JProgressBar;
  *
  * @author david
  */
-public class EventoBoton implements ActionListener {
+public class EventoOperacionRapida implements ActionListener {
     private JProgressBar barra;
     Integer valor = 0;
     Boolean direccion = true;
     
-    public EventoBoton(JProgressBar b) {
+    public EventoOperacionRapida(JProgressBar b) {
         barra = b;
     }
 
@@ -42,6 +42,5 @@ public class EventoBoton implements ActionListener {
         System.out.println(valor + " de 100");
 
         barra.setValue(valor);
-    }
-    
+    }    
 }

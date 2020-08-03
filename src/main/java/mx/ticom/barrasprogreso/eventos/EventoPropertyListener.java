@@ -13,10 +13,10 @@ import javax.swing.JProgressBar;
  *
  * @author david
  */
-public class EventoProgreso implements PropertyChangeListener {
+public class EventoPropertyListener implements PropertyChangeListener {
     private final JProgressBar barraProgreso;
     
-    public EventoProgreso(JProgressBar barra) {
+    public EventoPropertyListener(JProgressBar barra) {
         barraProgreso = barra;
     }
 
